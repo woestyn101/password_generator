@@ -163,20 +163,10 @@ button[disabled] {
 .button-21:focus:not(:active) {
   box-shadow: rgba(40, 170, 255, 0.25) 0 0 0 .125em;
 }
-@media (max-width: 690px) {
-  .btn {
+@media (max-width: 600px) {
+   header {
     font-size: 1rem;
-    margin: 16px 0px 0px 0px;
-    padding: 10px 15px;
-  }
+   }
 
-  #password {
-    font-size: 1rem;
-  }
-}
-
-@media (max-width: 500px) {
-  .btn {
-    font-size: 0.8rem;
-  }
+  
 }
