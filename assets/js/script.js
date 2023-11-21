@@ -91,7 +91,8 @@ document.getElementById("generate").onclick = function () {
     }
     
     passwordArray = passwordArray.slice(0,amountCharacters)
-    
+
+    // join password array togehter in a string
     passwordArray = passwordArray.join('');
     
     
