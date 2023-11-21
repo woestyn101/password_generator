@@ -95,7 +95,7 @@ document.getElementById("generate").onclick = function () {
     passwordArray = passwordArray.join('');
     
     
-    document.getElementById("password1").innerHTML = passwordArray;
+    document.getElementById("password").innerHTML = passwordArray;
   
     
   
