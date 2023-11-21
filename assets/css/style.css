@@ -16,6 +16,8 @@ body,
   text-align: center;
 }
 
+
+
 body {
   font-family: sans-serif;
   background-color: #f9fbfd;
@@ -25,21 +27,24 @@ body {
 
 header {
   text-align: center;
-  padding: 20px;
-  padding-top: 0px;
-  color: hsl(206, 17%, 28%);
+  padding: 5px;
+  color: white;
+  background-color: dodgerblue;
+  vertical-align: middle;
+  font-size: 1.5rem;
 }
 
 .card {
-  background-color: hsl(0, 0%, 100%);
-  border-radius: 5px;
+  background-color: #002e63;
+  border-radius: 15px;
   border-width: 1px;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px 0px;
-  color: hsl(206, 17%, 28%);
+  color: white;
   font-size: 18px;
   margin: 0 auto;
   max-width: 800px;
   padding: 30px 40px;
+  
 }
 
 .card-header::after {
@@ -52,14 +57,17 @@ header {
 
 .card-body {
   min-height: 100px;
+  margin-bottom: 10px;
   
 }
 
 .card-footer {
   text-align: center;
+  margin-top: 10px;
 }
 
 .card-footer::before {
+  margin-bottom: 15px;
   content: " ";
   display: block;
   width: 100%;
@@ -73,21 +81,6 @@ header {
   clear: both;
 }
 
-.btn {
-  border: none;
-  background-color: hsl(360, 91%, 36%);
-  border-radius: 25px;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px
-    0px;
-  color: hsl(0, 0%, 100%);
-  display: inline-block;
-  font-size: 22px;
-  line-height: 22px;
-  margin: 16px 16px 16px 20px;
-  padding: 14px 34px;
-  text-align: center;
-  cursor: pointer;
-}
 
 button[disabled] {
   cursor: default;
@@ -123,6 +116,53 @@ button[disabled] {
   font-size: 2rem;
 }
 
+
+
+
+
+/* CSS */
+.button-21 {
+  align-items: center;
+  appearance: none;
+  background-color: #3EB2FD;
+  background-image: linear-gradient(1deg, #4F58FD, #149BF3 99%);
+  background-size: calc(100% + 20px) calc(100% + 20px);
+  border-radius: 100px;
+  border-width: 0;
+  box-shadow: none;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: CircularStd,sans-serif;
+  font-size: 1rem;
+  height: auto;
+  justify-content: center;
+  line-height: 1.5;
+  padding: 6px 20px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color .2s,background-position .2s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: top;
+  white-space: nowrap;
+}
+
+.button-21:active,
+.button-21:focus {
+  outline: none;
+}
+
+.button-21:hover {
+  background-position: -20px -20px;
+}
+
+.button-21:focus:not(:active) {
+  box-shadow: rgba(40, 170, 255, 0.25) 0 0 0 .125em;
+}
 @media (max-width: 690px) {
   .btn {
     font-size: 1rem;
