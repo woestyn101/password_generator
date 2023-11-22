@@ -63,7 +63,7 @@ document.getElementById("generate").onclick = function () {
       const upperCaseArray = upperCaseShuffled.map(item => item.toUpperCase());
       passwordArray = passwordArray.concat(upperCaseArray);
       passwordArray = passwordArray.sort(() => 0.5 - Math.random()); 
-      console.log(passwordArray);
+    //  console.log(passwordArray);
     }else {
      passwordArray = passwordArray.concat(passwordArray);
     }
@@ -73,7 +73,7 @@ document.getElementById("generate").onclick = function () {
       passwordArray = passwordArray.concat(numbersShuffled);
       passwordArray = passwordArray.sort(() => 0.5 - Math.random());
     
-      console.log(passwordArray);
+      //console.log(passwordArray);
     
     } else {
       passwordArray = passwordArray.concat(passwordArray);
@@ -85,7 +85,7 @@ document.getElementById("generate").onclick = function () {
       passwordArray = passwordArray.concat(specialShuffled);
       passwordArray = passwordArray.sort(() => 0.5 - Math.random());
     
-      console.log(passwordArray);
+      //console.log(passwordArray);
     
     }else {
       passwordArray = passwordArray.concat(passwordArray);
@@ -93,31 +93,32 @@ document.getElementById("generate").onclick = function () {
   //function to shuffle array
     function shuffleArray(array) {
       array = array.sort(() => 0.5 - Math.random());
-      console.log(array);
+     // console.log(array);
       return array[0];
     }
 
     
 
     
-    console.log(passwordArray);
+    //console.log(passwordArray);
+
     passwordArray = passwordArray.slice(0,amountCharacters);
-     console.log(passwordArray);
+    // console.log(passwordArray);
     // checking if password meets criteria given
 
     let isSymbol = passwordArray.some((ai) => arraySymbols.includes(ai));
     
-     console.log(isSymbol);
-     console.log(specialCharacters)
+    //  console.log(isSymbol);
+    //  console.log(specialCharacters)
 
      if (isSymbol == false && specialCharacters == false){
 
       passwordArray = passwordArray;
-      console.log(passwordArray);
+      //console.log(passwordArray);
 
      }else if(isSymbol == false && specialCharacters == true) {
       newSymbol = shuffleArray(arraySymbols);
-      console.log(newSymbol);
+      //console.log(newSymbol);
       passwordArray.splice(0, 1, newSymbol);
      }else{
       passwordArray = passwordArray;
@@ -126,17 +127,17 @@ document.getElementById("generate").onclick = function () {
      //validation for Numbers
      let isNumber = passwordArray.some((ai) => arrayNumbers.includes(ai));
     
-     console.log(isNumber);
-     console.log(numbers);
+    //  console.log(isNumber);
+    //  console.log(numbers);
 
      if (isNumber == false && numbers == false){
 
       passwordArray = passwordArray;
-      console.log(passwordArray);
+      //console.log(passwordArray);
 
      }else if(isNumber == false && numbers == true) {
       newNumber = shuffleArray(arrayNumbers);
-      console.log(newLetter);
+      //console.log(newLetter);
       passwordArray.splice(2, 1, newNumber);
      }else{
       passwordArray = passwordArray;
