@@ -9,7 +9,7 @@ During this project I learned how to use javascript:
 - variables, functions and arrays.
 - to validating input from the user.
 - implementing conditional statements
-- to ouput a varialble to a html page.
+- to ouput a variable to a html page.
 
 ## Link to website
 
