@@ -26,7 +26,7 @@ arrays, variables and functions and how to integrate javascript with html and CS
 
 ![Website Screenshot](./assets/images/website_screenshot.jpg)
 
-## Credits:Recourses used
+## Credits: Resources used
 
 I used and modified code from the following resources:
 
