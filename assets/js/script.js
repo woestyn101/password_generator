@@ -27,6 +27,7 @@ var newPasswordArray = [];
 
 
 
+
 document.getElementById("generate").onclick = function () {
 
   
@@ -45,10 +46,10 @@ document.getElementById("generate").onclick = function () {
   
   
 
-    var lowerCaseLetters = confirm("Do you want lowercase letters?");
-  var upperCaseLetters = confirm("Do you want uppercase letters?");
-  var numbers = confirm("Do you want numbers?");
-  var specialCharacters = confirm("Do you want to include special characters?");
+  const lowerCaseLetters = confirm("Do you want lowercase letters?");
+  const upperCaseLetters = confirm("Do you want uppercase letters?");
+  const numbers = confirm("Do you want numbers?");
+  const specialCharacters = confirm("Do you want to include special characters?");
 
     if (lowerCaseLetters == true){
       passwordArray = arrayLetters.sort(() => 0.5 - Math.random()); // 
@@ -89,8 +90,43 @@ document.getElementById("generate").onclick = function () {
     }else {
       passwordArray = passwordArray.concat(passwordArray);
     }
+  //function to shuffle array
+    function shuffleArray(array) {
+      array = array.sort(() => 0.5 - Math.random());
+      console.log(array);
+      return array[0];
+    }
+
     
-    passwordArray = passwordArray.slice(0,amountCharacters)
+
+    
+    console.log(passwordArray);
+    passwordArray = passwordArray.slice(0,amountCharacters);
+     console.log(passwordArray);
+    // checking if password meets criteria given
+
+    let isSymbol = passwordArray.some((ai) => arraySymbols.includes(ai));
+    
+     console.log(isSymbol);
+     console.log(specialCharacters)
+     
+     if (isSymbol == false && specialCharacters == false){
+
+      passwordArray = passwordArray;
+      console.log(passwordArray);
+
+     }else if(isSymbol == false && specialCharacters == true) {
+      newSymbol = shuffleArray(arraySymbols);
+      console.log(newSymbol);
+      passwordArray.splice(0, 1, newSymbol);
+     }else{
+      passwordArray = passwordArray;
+     }
+    
+
+    
+
+    
 
     // join password array togehter in a string
     passwordArray = passwordArray.join('');
