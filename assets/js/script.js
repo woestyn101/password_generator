@@ -220,15 +220,3 @@ document.getElementById("generate").onclick = function () {
 
 
 
-// code resources
-
-// https://dirask.com/posts/JavaScript-get-multiple-random-elements-from-array-D9WM0j
-
-
-// https://www.w3schools.com/jsref/jsref_concat_array.asp
-
-//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join
-
-//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice
-
-//https://stackoverflow.com/questions/3746725/how-to-create-an-array-containing-1-n
