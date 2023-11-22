@@ -18,7 +18,11 @@ var arrayLetters =  ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k","l", 
 var arraySymbols = ['!',  "#", "$", "%", "&","'","(", ")", "*", "+","-", ".", "/",":",";", "<","=", ">", "?", "@" , "^", "~", "{", "}"];
 ;
 
-var arrayNumbers = [0,1,2,3,4,5,6,7,8,9]
+var arrayNumbers = [];
+for (var i = 0; i<30;i++){
+    arrayNumbers.push(i);
+}
+//console.log(arrayNumbers);
 
 
 
@@ -57,6 +61,7 @@ document.getElementById("generate").onclick = function () {
     }else {
       passwordArray = [];
     }
+
     if(upperCaseLetters == true)
     {
       const upperCaseShuffled = arrayLetters.sort(() => 0.5 - Math.random()); 
@@ -67,13 +72,14 @@ document.getElementById("generate").onclick = function () {
     }else {
      passwordArray = passwordArray.concat(passwordArray);
     }
+
     if (numbers == true){
       const numbersShuffled = arrayNumbers.sort(() => 0.5 - Math.random());
       
       passwordArray = passwordArray.concat(numbersShuffled);
       passwordArray = passwordArray.sort(() => 0.5 - Math.random());
     
-      //console.log(passwordArray);
+      console.log(passwordArray);
     
     } else {
       passwordArray = passwordArray.concat(passwordArray);
@@ -138,7 +144,7 @@ document.getElementById("generate").onclick = function () {
      }else if(isNumber == false && numbers == true) {
       newNumber = shuffleArray(arrayNumbers);
       //console.log(newLetter);
-      passwordArray.splice(2, 1, newNumber);
+      passwordArray.splice(1, 1, newNumber);
      }else{
       passwordArray = passwordArray;
      } 
@@ -163,12 +169,30 @@ document.getElementById("generate").onclick = function () {
       passwordArray = passwordArray;
      } 
 
-
+     const upperCaseArray2 = arrayLetters.map(item => item.toUpperCase());
+ // console.log(upperCaseArray2);
     
+ //validation for uppercase letters
+        let isUpperCase = passwordArray.some((ai) => upperCaseArray2.includes(ai));
+            
+       // console.log(isUpperCase);
+       // console.log(upperCaseLetters);
 
-    
+        if (isUpperCase == false && upperCaseLetters == false){
 
-    // join password array togehter in a string
+          passwordArray = passwordArray;
+         // console.log(passwordArray);
+
+        }else if(isUpperCase == false && upperCaseLetters == true) {
+          newUpperLetter = shuffleArray(upperCaseArray2);
+         // console.log(newLetter);
+          passwordArray.splice(3, 1, newUpperLetter);
+        }else{
+          passwordArray = passwordArray;
+        } 
+            
+
+    // join password array together in a string
     passwordArray = passwordArray.join('');
     
     
@@ -206,3 +230,5 @@ document.getElementById("generate").onclick = function () {
 //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join
 
 //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice
+
+//https://stackoverflow.com/questions/3746725/how-to-create-an-array-containing-1-n
