@@ -109,7 +109,7 @@ document.getElementById("generate").onclick = function () {
     
      console.log(isSymbol);
      console.log(specialCharacters)
-     
+
      if (isSymbol == false && specialCharacters == false){
 
       passwordArray = passwordArray;
@@ -121,8 +121,47 @@ document.getElementById("generate").onclick = function () {
       passwordArray.splice(0, 1, newSymbol);
      }else{
       passwordArray = passwordArray;
-     }
+     } 
+
+     //validation for Numbers
+     let isNumber = passwordArray.some((ai) => arrayNumbers.includes(ai));
     
+     console.log(isNumber);
+     console.log(numbers);
+
+     if (isNumber == false && numbers == false){
+
+      passwordArray = passwordArray;
+      console.log(passwordArray);
+
+     }else if(isNumber == false && numbers == true) {
+      newNumber = shuffleArray(arrayNumbers);
+      console.log(newLetter);
+      passwordArray.splice(2, 1, newNumber);
+     }else{
+      passwordArray = passwordArray;
+     } 
+
+
+     //validation for lowercase letters
+     let isLowerCase = passwordArray.some((ai) => arrayLetters.includes(ai));
+    
+     console.log(isLowerCase);
+     console.log(lowerCaseLetters);
+
+     if (isLowerCase == false && lowerCaseLetters == false){
+
+      passwordArray = passwordArray;
+      console.log(passwordArray);
+
+     }else if(isLowerCase == false && lowerCaseLetters == true) {
+      newLetter = shuffleArray(arrayLetters);
+      console.log(newLetter);
+      passwordArray.splice(2, 1, newLetter);
+     }else{
+      passwordArray = passwordArray;
+     } 
+
 
     
 
