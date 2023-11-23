@@ -45,50 +45,41 @@ document.getElementById("generate").onclick = function () {
   const numbers = confirm("Do you want numbers?");
   const specialCharacters = confirm("Do you want to include special characters?");
 
+  //function to shuffle arrays
+
+  function shuffleArray(array) {
+    array = array.sort(() => 0.5 - Math.random());
+   
+    return array;
+  }
+
   //apply criteria set by user to password
 
     if (lowerCaseLetters == true){
-      passwordArray = arrayLetters.sort(() => 0.5 - Math.random()); // 
-      console.log("true");
-     
-    }else {
-      passwordArray = [];
-      console.log("false");
+      passwordArray = shuffleArray(arrayLetters);            
     }
 
     if(upperCaseLetters == true)
-    {
-      
-      arrayLettersUpper = arrayLettersUpper.sort(() => 0.5 - Math.random());
+    {      
+      arrayLettersUpper = shuffleArray(arrayLettersUpper);
       passwordArray = passwordArray.concat(arrayLettersUpper);
-      passwordArray = passwordArray.sort(() => 0.5 - Math.random()); 
+      passwordArray = shuffleArray(passwordArray);
    
-    }else {
-     passwordArray = passwordArray.concat(passwordArray);
     }
 
     if (numbers == true){
-      const numbersShuffled = arrayNumbers.sort(() => 0.5 - Math.random());
-      
-      passwordArray = passwordArray.concat(numbersShuffled);
-      passwordArray = passwordArray.sort(() => 0.5 - Math.random());
+      arrayNumbers = shuffleArray(arrayNumbers);      
+      passwordArray = passwordArray.concat(arrayNumbers);
+      passwordArray = shuffleArray(passwordArray);       
     
-      console.log(passwordArray);
-    
-    } else {
-      passwordArray = passwordArray.concat(passwordArray);
-    }
+    } 
     
     if (specialCharacters == true){
-      const specialShuffled = arraySymbols.sort(() => 0.5 - Math.random());
+      arraySymbols = shuffleArray(arraySymbols);
       
-      passwordArray = passwordArray.concat(specialShuffled);
-      passwordArray = passwordArray.sort(() => 0.5 - Math.random());
+      passwordArray = passwordArray.concat(arraySymbols);
+      passwordArray = shuffleArray(passwordArray);        
     
-      
-    
-    }else {
-      passwordArray = passwordArray.concat(passwordArray);
     }
 
   //function to shuffle array
@@ -97,18 +88,15 @@ document.getElementById("generate").onclick = function () {
      
       return array[0];
     }
-
     
 
-    // redusing password to amount of characters specified by user
-   
+    // redusing password to amount of characters specified by user   
 
     passwordArray = passwordArray.slice(0,amountCharacters);
    
     // checking if password meets criteria given
 
-    let isSymbol = passwordArray.some((ai) => arraySymbols.includes(ai));
-    
+    let isSymbol = passwordArray.some((ai) => arraySymbols.includes(ai));    
     
 
      if (isSymbol == false && specialCharacters == false){
@@ -145,8 +133,7 @@ document.getElementById("generate").onclick = function () {
      //validation for lowercase letters
      let isLowerCase = passwordArray.some((ai) => arrayLetters.includes(ai));
     
-     console.log(isLowerCase);
-     console.log(lowerCaseLetters);
+     
 
      if (isLowerCase == false && lowerCaseLetters == false){
 
@@ -183,7 +170,9 @@ document.getElementById("generate").onclick = function () {
       //reduce password to amount of characters specified by user
 
       passwordArray = passwordArray.slice(0,amountCharacters);
-      console.log(passwordArray);
+     
+      //last shuffle of password
+      passwordArray = shuffleArray(passwordArray);     
 
     // join password array together in a string
     passwordArray = passwordArray.join('');
