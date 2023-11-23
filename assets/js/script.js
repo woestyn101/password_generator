@@ -92,7 +92,7 @@ document.getElementById("generate").onclick = function () {
     }
 
   //function to shuffle array
-    function shuffleArray(array) {
+    function shuffleArrayReturnOne(array) {
       array = array.sort(() => 0.5 - Math.random());
      
       return array[0];
@@ -117,7 +117,7 @@ document.getElementById("generate").onclick = function () {
      
 
      }else if(isSymbol == false && specialCharacters == true) {
-      newSymbol = shuffleArray(arraySymbols);
+      newSymbol = shuffleArrayReturnOne(arraySymbols);
      
       passwordArray.splice(0, 1, newSymbol);
      }else{
@@ -134,7 +134,7 @@ document.getElementById("generate").onclick = function () {
       
 
      }else if(isNumber == false && numbers == true) {
-      newNumber = shuffleArray(arrayNumbers);
+      newNumber = shuffleArrayReturnOne(arrayNumbers);
       
       passwordArray.splice(1, 1, newNumber);
      }else{
@@ -154,7 +154,7 @@ document.getElementById("generate").onclick = function () {
       console.log(passwordArray);
 
      }else if(isLowerCase == false && lowerCaseLetters == true) {
-      newLetter = shuffleArray(arrayLetters);
+      newLetter = shuffleArrayReturnOne(arrayLetters);
       console.log(newLetter);
       passwordArray.splice(2, 1, newLetter);
      }else{
@@ -173,7 +173,7 @@ document.getElementById("generate").onclick = function () {
           passwordArray = passwordArray;
         
         }else if(isUpperCase == false && upperCaseLetters == true) {
-          newUpperLetter = shuffleArray(upperCaseArray2);
+          newUpperLetter = shuffleArrayReturnOne(upperCaseArray2);
         
           passwordArray.splice(3, 1, newUpperLetter);
         }else{
