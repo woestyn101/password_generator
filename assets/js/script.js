@@ -1,17 +1,6 @@
-// Assignment code here
 
 
-// Get references to the #generate element
-var generateBtn = document.querySelector("#generate");
-
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
-
-}
+//initializing variable criteria
 
 var arrayLetters =  ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k","l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z" ];
 
@@ -22,12 +11,12 @@ var arrayNumbers = [0,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9];
 
 
 
-
+// setting starting password array
 
 var passwordArray = [];
 
 
-
+// function code for button to generate password
 
 
 document.getElementById("generate").onclick = function () {
@@ -46,12 +35,14 @@ document.getElementById("generate").onclick = function () {
   }
 
   
-  
+   // prompt for user input to set criteria
 
   const lowerCaseLetters = confirm("Do you want lowercase letters?");
   const upperCaseLetters = confirm("Do you want uppercase letters?");
   const numbers = confirm("Do you want numbers?");
   const specialCharacters = confirm("Do you want to include special characters?");
+
+  //apply criteria set by user to password
 
     if (lowerCaseLetters == true){
       passwordArray = arrayLetters.sort(() => 0.5 - Math.random()); // 
@@ -94,6 +85,7 @@ document.getElementById("generate").onclick = function () {
     }else {
       passwordArray = passwordArray.concat(passwordArray);
     }
+
   //function to shuffle array
     function shuffleArray(array) {
       array = array.sort(() => 0.5 - Math.random());
@@ -103,7 +95,7 @@ document.getElementById("generate").onclick = function () {
 
     
 
-    
+    // redusing password to amount of characters specified by user
    
 
     passwordArray = passwordArray.slice(0,amountCharacters);
@@ -128,8 +120,7 @@ document.getElementById("generate").onclick = function () {
      } 
 
      //validation for Numbers
-     let isNumber = passwordArray.some((ai) => arrayNumbers.includes(ai));
-    
+     let isNumber = passwordArray.some((ai) => arrayNumbers.includes(ai));    
    
 
      if (isNumber == false && numbers == false){
@@ -168,9 +159,8 @@ document.getElementById("generate").onclick = function () {
      const upperCaseArray2 = arrayLetters.map(item => item.toUpperCase());
  
     
- //validation for uppercase letters
-        let isUpperCase = passwordArray.some((ai) => upperCaseArray2.includes(ai));
-            
+    //validation for uppercase letters
+        let isUpperCase = passwordArray.some((ai) => upperCaseArray2.includes(ai));            
       
 
         if (isUpperCase == false && upperCaseLetters == false){
@@ -184,13 +174,16 @@ document.getElementById("generate").onclick = function () {
         }else{
           passwordArray = passwordArray;
         } 
-         
+      
+      //reduce password to amount of characters specified by user
 
       passwordArray = passwordArray.slice(0,amountCharacters);
       console.log(passwordArray);
+
     // join password array together in a string
     passwordArray = passwordArray.join('');
     
+    //output password to html page
     
     document.getElementById("password").innerHTML = passwordArray;
   
