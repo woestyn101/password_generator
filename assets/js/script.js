@@ -4,6 +4,9 @@
 
 var arrayLetters =  ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k","l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z" ];
 
+
+var arrayLettersUpper = arrayLetters.map(item => item.toUpperCase());
+
 var arraySymbols = ['!',  "#", "$", "%", "&","'","(", ")", "*", "+","-", ".", "/",":",";", "<","=", ">", "?", "@" , "^", "~", "{", "}"];
 ;
 
@@ -46,16 +49,18 @@ document.getElementById("generate").onclick = function () {
 
     if (lowerCaseLetters == true){
       passwordArray = arrayLetters.sort(() => 0.5 - Math.random()); // 
+      console.log("true");
      
     }else {
       passwordArray = [];
+      console.log("false");
     }
 
     if(upperCaseLetters == true)
     {
-      const upperCaseShuffled = arrayLetters.sort(() => 0.5 - Math.random()); 
-      const upperCaseArray = upperCaseShuffled.map(item => item.toUpperCase());
-      passwordArray = passwordArray.concat(upperCaseArray);
+      
+      arrayLettersUpper = arrayLettersUpper.sort(() => 0.5 - Math.random());
+      passwordArray = passwordArray.concat(arrayLettersUpper);
       passwordArray = passwordArray.sort(() => 0.5 - Math.random()); 
    
     }else {
