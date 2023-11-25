@@ -94,7 +94,8 @@ document.getElementById("generate").onclick = function () {
 
     let isSymbol = passwordArray.some((ai) => arraySymbols.includes(ai));    
     
-     console.log(isSymbol);
+     
+
      if (isSymbol == false && specialCharacters == false){
 
       passwordArray = passwordArray;
