@@ -53,6 +53,13 @@ document.getElementById("generate").onclick = function () {
     return array;
   }
 
+  function shuffleConcat (array) {
+    array = shuffleArray(array);
+    passwordArray = passwordArray.concat(array);
+    passwordArray = shuffleArray(passwordArray);
+    return passwordArray;
+  }
+
   //apply criteria set by user to password
 
     if (lowerCaseLetters == true){
@@ -61,24 +68,26 @@ document.getElementById("generate").onclick = function () {
 
     if(upperCaseLetters == true)
     {      
-      arrayLettersUpper = shuffleArray(arrayLettersUpper);
-      passwordArray = passwordArray.concat(arrayLettersUpper);
-      passwordArray = shuffleArray(passwordArray);
+      shuffleConcat(arrayLettersUpper);
+      // arrayLettersUpper = shuffleArray(arrayLettersUpper);
+      // passwordArray = passwordArray.concat(arrayLettersUpper);
+      // passwordArray = shuffleArray(passwordArray);
    
     }
 
     if (numbers == true){
-      arrayNumbers = shuffleArray(arrayNumbers);      
-      passwordArray = passwordArray.concat(arrayNumbers);
-      passwordArray = shuffleArray(passwordArray);       
+      shuffleConcat(arrayNumbers);
+      // arrayNumbers = shuffleArray(arrayNumbers);      
+      // passwordArray = passwordArray.concat(arrayNumbers);
+      // passwordArray = shuffleArray(passwordArray);       
     
     } 
     
     if (specialCharacters == true){
-      arraySymbols = shuffleArray(arraySymbols);
-      
-      passwordArray = passwordArray.concat(arraySymbols);
-      passwordArray = shuffleArray(passwordArray);        
+      shuffleConcat(arraySymbols);
+      // arraySymbols = shuffleArray(arraySymbols);      
+      // passwordArray = passwordArray.concat(arraySymbols);
+      // passwordArray = shuffleArray(passwordArray);        
     
     }
 
@@ -148,11 +157,11 @@ document.getElementById("generate").onclick = function () {
       passwordArray = passwordArray;
      } 
 
-     const upperCaseArray2 = arrayLetters.map(item => item.toUpperCase());
+     //const upperCaseArray2 = arrayLetters.map(item => item.toUpperCase());
  
     
     //validation for uppercase letters
-        let isUpperCase = passwordArray.some((ai) => upperCaseArray2.includes(ai));            
+        let isUpperCase = passwordArray.some((ai) => arrayLettersUpper.includes(ai));            
       
 
         if (isUpperCase == false && upperCaseLetters == false){
