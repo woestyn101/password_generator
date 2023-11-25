@@ -52,7 +52,8 @@ document.getElementById("generate").onclick = function () {
    
     return array;
   }
- // funtion to add to password array and shuffle
+
+ // function to add to password array and shuffle
   function shuffleConcat (array) {
     array = shuffleArray(array);
     passwordArray = passwordArray.concat(array);
@@ -94,71 +95,44 @@ document.getElementById("generate").onclick = function () {
 
     let isSymbol = passwordArray.some((ai) => arraySymbols.includes(ai));    
     
-     
+         
 
-     if (isSymbol == false && specialCharacters == false){
-
-      passwordArray = passwordArray;
-     
-
-     }else if (isSymbol == false && specialCharacters == true) {
+     if (isSymbol == false && specialCharacters == true) {
       newSymbol = shuffleArrayReturnOne(arraySymbols);
       // add missing symbol to array
       passwordArray.splice(0, 1, newSymbol);
-     }else{
-      passwordArray = passwordArray;
-     } 
+     }
 
      //validation for Numbers
      let isNumber = passwordArray.some((ai) => arrayNumbers.includes(ai));      
 
-     if (isNumber == false && numbers == false){
-
-      passwordArray = passwordArray;     
-
-     }else if (isNumber == false && numbers == true) {
+     if (isNumber == false && numbers == true) {
       newNumber = shuffleArrayReturnOne(arrayNumbers);
       
       passwordArray.splice(1, 1, newNumber);
-     }else{
-      passwordArray = passwordArray;
-     } 
+     }
 
 
      //validation for lowercase letters
      let isLowerCase = passwordArray.some((ai) => arrayLetters.includes(ai));   
 
-     if (isLowerCase == false && lowerCaseLetters == false){
-
-      passwordArray = passwordArray;
-      
-     }else if(isLowerCase == false && lowerCaseLetters == true) {
+      if(isLowerCase == false && lowerCaseLetters == true) {
       newLetter = shuffleArrayReturnOne(arrayLetters);
       // add missing lowercase letter to password array
       passwordArray.splice(2, 1, newLetter);
-     }else{
-      passwordArray = passwordArray;
-     } 
+     }
 
-    
- 
-    
+       
     //validation for uppercase letters
         let isUpperCase = passwordArray.some((ai) => arrayLettersUpper.includes(ai));    
                 
       
 
-        if (isUpperCase == false && upperCaseLetters == false){
-
-          passwordArray = passwordArray;
-        
-        }else if(isUpperCase == false && upperCaseLetters == true) {
+       if(isUpperCase == false && upperCaseLetters == true) {
           newUpperLetter = shuffleArrayReturnOne(arrayLettersUpper);
         // add missing uppercase letter to password array
           passwordArray.splice(3, 1, newUpperLetter);
-        }else{
-          passwordArray = passwordArray;
-        } 
+        }
       
       //reduce password to amount of characters specified by user
 
