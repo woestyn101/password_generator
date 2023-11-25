@@ -94,7 +94,7 @@ document.getElementById("generate").onclick = function () {
 
     let isSymbol = passwordArray.some((ai) => arraySymbols.includes(ai));    
     
-
+     console.log(isSymbol);
      if (isSymbol == false && specialCharacters == false){
 
       passwordArray = passwordArray;
@@ -152,7 +152,7 @@ document.getElementById("generate").onclick = function () {
           passwordArray = passwordArray;
         
         }else if(isUpperCase == false && upperCaseLetters == true) {
-          newUpperLetter = shuffleArrayReturnOne(upperCaseArray2);
+          newUpperLetter = shuffleArrayReturnOne(arrayLettersUpper);
         // add missing uppercase letter to password array
           passwordArray.splice(3, 1, newUpperLetter);
         }else{
