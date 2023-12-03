@@ -63,20 +63,20 @@ document.getElementById("generate").onclick = function () {
 
   //apply criteria set by user to password
 
-    if (lowerCaseLetters == true){
+    if (lowerCaseLetters){
       passwordArray = shuffleArray(arrayLetters);            
     }
 
-    if(upperCaseLetters == true)
+    if(upperCaseLetters)
     {      
       shuffleConcat(arrayLettersUpper);      
     }
 
-    if (numbers == true){
+    if (numbers){
       shuffleConcat(arrayNumbers);     
     } 
     
-    if (specialCharacters == true){
+    if (specialCharacters){
       shuffleConcat(arraySymbols);   
     }
 
@@ -97,7 +97,7 @@ document.getElementById("generate").onclick = function () {
     
          
 
-     if (isSymbol == false && specialCharacters == true) {
+     if (!isSymbol && specialCharacters) {
       newSymbol = shuffleArrayReturnOne(arraySymbols);
       // add missing symbol to array
       passwordArray.splice(0, 1, newSymbol);
@@ -106,9 +106,9 @@ document.getElementById("generate").onclick = function () {
      //validation for Numbers
      let isNumber = passwordArray.some((ai) => arrayNumbers.includes(ai));      
 
-     if (isNumber == false && numbers == true) {
+     if (!isNumber && numbers) {
       newNumber = shuffleArrayReturnOne(arrayNumbers);
-      
+      // add missing number to array
       passwordArray.splice(1, 1, newNumber);
      }
 
@@ -116,7 +116,7 @@ document.getElementById("generate").onclick = function () {
      //validation for lowercase letters
      let isLowerCase = passwordArray.some((ai) => arrayLetters.includes(ai));   
 
-      if(isLowerCase == false && lowerCaseLetters == true) {
+      if(!isLowerCase && lowerCaseLetters) {
       newLetter = shuffleArrayReturnOne(arrayLetters);
       // add missing lowercase letter to password array
       passwordArray.splice(2, 1, newLetter);
@@ -128,7 +128,7 @@ document.getElementById("generate").onclick = function () {
                 
       
 
-       if(isUpperCase == false && upperCaseLetters == true) {
+       if(!isUpperCase && upperCaseLetters) {
           newUpperLetter = shuffleArrayReturnOne(arrayLettersUpper);
         // add missing uppercase letter to password array
           passwordArray.splice(3, 1, newUpperLetter);
